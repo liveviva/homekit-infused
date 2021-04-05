@@ -1,0 +1,74 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: "&nbsp; Outdoor Camera's"
+      - type: picture-glance
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: 16x10.5
+        title: Gallerij
+        camera_image: camera.gallerij_camera
+        entities: 
+          - entity: switch.hdr_mode_gallerij_camera
+            icon: mdi:hdr
+          - entity: switch.ir_active_gallerij_camera
+            icon: mdi:theme-light-dark
+          - entity: switch.record_always_gallerij_camera
+            icon: mdi:record-rec
+          - entity: switch.record_motion_gallerij_camera
+            icon: mdi:motion
+          - switch.status_light_on_gallerij_camera
+      - type: picture-glance
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: 16x10.5
+        title: Kennedylaan
+        camera_image: camera.kennedylaan_camera
+        entities: 
+          - entity: switch.dafang_ir_filter
+            icon: mdi:filter-variant
+          - entity: switch.dafang_ir_led
+            icon: mdi:theme-light-dark
+          - entity: switch.dafang_night_mode
+            icon: mdi:weather-night
+          - entity: switch.dafang_night_mode_auto
+            icon: mdi:brightness-4
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: "&nbsp; Indoor Camera's"
+      - type: picture-entity
+        style: |
+          ha-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+          }
+        aspect_ratio: 16x10.5
+        title: Woonkamer
+        entity: camera.woonkamer_camera
+        show_state: false

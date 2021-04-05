@@ -1,0 +1,34 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: '&nbsp; Total Cost Today'
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_day_consumption_electricity_cost_merged
+              name: Electriciteit
+              line_color: '"#9000ff"'
+              graph_type: line
+              decimals: 2
+              font_size: 65
+              show_extrema: true
+              show_average: true
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_day_consumption_gas_cost
+              name: Gas
+              line_color: '"#ff7300"'
+              graph_type: line
+              decimals: 2
+              font_size: 65
+              show_extrema: true
+              show_average: true

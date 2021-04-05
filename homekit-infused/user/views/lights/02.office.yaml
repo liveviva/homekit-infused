@@ -1,0 +1,43 @@
+- type: conditional
+  conditions:
+    - entity: input_select.floor_selector
+      state: "1"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - !include
+              - '../../../base/templates/other/title-text.yaml'
+              - name: '&nbsp; Kleine Kamer'
+            - !include
+              - '../../../base/templates/other/title-text.yaml'
+              - name: "[[[ return `${states['sensor.kleine_kamer_temperatuur'].state} °C`; ]]]"
+                justify_self: center
+            - !include
+              - '../../templates/title-text-advanced.yaml'
+              - name: "[[[ return `${states['light.office_lampen'].state.toUpperCase()} &nbsp;` ]]]"
+                entity: light.office_lampen
+                justify_self: end
+        - type: horizontal-stack
+          cards:
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.office_led_lampen
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-rgb.yaml'
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.kleine_kamer
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-color-temp.yaml'
+            - !include ../../../base/includes/empty-button.yaml

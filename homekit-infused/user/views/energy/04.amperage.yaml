@@ -1,0 +1,56 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: '&nbsp; Ampèrage'
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.wasmachine_current
+              name: Wasmachine
+              line_color: '"#ffb414"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 0
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.droger_current
+              name: Droger
+              line_color: '"#ffb414"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 0
+              font_size: 65
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.koelkast_current
+              name: Koelkast
+              line_color: '"#ffb414"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 0
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.vaatwasser_current
+              name: Vaatwasser
+              line_color: '"#ffb414"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 0
+              font_size: 65

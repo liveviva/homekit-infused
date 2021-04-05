@@ -1,0 +1,68 @@
+- type: conditional
+  conditions:
+    - entity: input_select.floor_selector
+      state: "1"
+  card:
+    type: custom:mod-card
+    style: |
+      ha-card {
+        margin-left: 7px;
+        margin-right: 7px;
+      }
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - !include
+              - '../../../base/templates/other/title-text.yaml'
+              - name: '&nbsp; Woonkamer'
+            - !include
+              - '../../../base/templates/other/title-text.yaml'
+              - name: "[[[ return `${states['sensor.woonkamer'].state} °C`; ]]]"
+                justify_self: center
+            - !include
+              - '../../templates/title-text-advanced.yaml'
+              - name: "[[[ return `${states['light.woonkamer_lampen'].state.toUpperCase()} &nbsp;` ]]]"
+                entity: light.woonkamer_lampen
+                justify_self: end
+        - type: horizontal-stack
+          cards:
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.plafond
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-switch.yaml'
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.eettafel
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-switch.yaml'
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.woonkamer_led_lampen
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-rgb.yaml'
+        - type: horizontal-stack
+          cards:
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.tafellamp
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-color-temp.yaml'
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.vloerlamp
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-color-temp.yaml'
+            - !include
+              - '../../../base/templates/button/button.yaml'
+              - entity: light.gateway_light_7811dcdef324
+                label: !include ../../../base/includes/brightness-label.yaml
+                grid: light-devices-grid
+                template: '../popup-cards/light-rgb.yaml'

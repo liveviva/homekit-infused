@@ -1,0 +1,44 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: '&nbsp; Current Meter Readings'
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_reading_electricity_delivered_1
+              name: Low Tariff
+              line_color: '"#fc0303"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 2
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_reading_electricity_delivered_2
+              name: High Tariff
+              line_color: '"#24fc03"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 2
+              font_size: 65
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_consumption_gas_delivered
+              name: Gas
+              line_color: '"#ee00ff"'
+              graph_type: line
+              show_extrema: true
+              show_average: true
+              decimals: 2
+              font_size: 65 

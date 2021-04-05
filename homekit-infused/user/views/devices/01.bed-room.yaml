@@ -1,0 +1,29 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: '&nbsp; Slaapkamer'
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: "[[[ return `${states['sensor.slaapkamer'].state} °C`; ]]]"
+              justify_self: end
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.receiver_slaapkamer_2
+              grid: light-devices-grid
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.tv_slaapkamer
+              grid: light-devices-grid
+          - !include ../../../base/includes/empty-button.yaml

@@ -1,0 +1,34 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - !include
+        - '../../../base/templates/other/title-text.yaml'
+        - name: '&nbsp; Total Today'
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_day_consumption_electricity_merged
+              name: Electriciteit
+              line_color: '"#0062ff"'
+              graph_type: line
+              decimals: 3
+              font_size: 65
+              show_extrema: true
+              show_average: true
+          - !include
+            - '../../../base/templates/other/mini-graph.yaml'
+            - entity: sensor.dsmr_day_consumption_gas
+              name: Gas
+              line_color: '"#ddff00"'
+              graph_type: line
+              decimals: 3
+              font_size: 65
+              show_extrema: true
+              show_average: true

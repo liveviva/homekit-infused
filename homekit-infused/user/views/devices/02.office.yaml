@@ -1,0 +1,54 @@
+- type: custom:mod-card
+  style: |
+    ha-card {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: '&nbsp; Kleine Kamer'
+          - !include
+            - '../../../base/templates/other/title-text.yaml'
+            - name: "[[[ return `${states['sensor.kleine_kamer_temperatuur'].state} °C`; ]]]"
+              justify_self: end
+      - type: horizontal-stack
+        cards:
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.pc_van_jimmy
+              grid: light-devices-grid
+              label: "[[[ return `${states['sensor.power_57'].state} W`; ]]]"
+              lock: true
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.pc_van_stephanie
+              grid: light-devices-grid
+              lock: true
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.piano
+              grid: light-devices-grid
+      - type: horizontal-stack
+        cards:
+#          - !include
+#            - '../../../base/templates/button/button.yaml'
+#            - entity: switch.monitors_jimmy
+#              grid: light-devices-grid
+#              lock: true
+#          - !include
+#            - '../../../base/templates/button/button.yaml'
+#            - entity: switch.monitors_stephanie
+#              grid: light-devices-grid
+#              lock: true
+          - !include
+            - '../../../base/templates/button/button.yaml'
+            - entity: switch.printer
+              grid: light-devices-grid
+              lock: true
+          - !include ../../../base/includes/empty-button.yaml
+          - !include ../../../base/includes/empty-button.yaml
